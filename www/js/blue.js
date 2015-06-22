@@ -34,6 +34,8 @@ function onReceiving()
 				}
 				MicroData.concat(tempDataReceived);
 				MicroData.splice(MicroDataSize-1,MicroData.length);
+				for(var i=0; i<lineChart.datasets[0].points.length; i++)
+					lineChart.datasets[0].points[i]=MicroData[i];
 				bluetoothSerial.disconnect(nop,nop);
 			}
 			, onCommunicationFailure);
@@ -47,13 +49,13 @@ function onConnect()
 
 function synchData()
 {
-	// /*
+	 /*
 	alert('salam');
 	MicroData[0]=1;
 	lineChart.datasets[0].points[0].value=1;
 	lineChart.update();
 	// */
-	 /*
+	// /*
 	ConnectionInterrupted=true;
 	bluetoothSerial.connect(BlueDevMacAdr, onConnect, onConnectionFailure);
 	// */
