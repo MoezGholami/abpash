@@ -1,12 +1,6 @@
 var blue = {
 	endIdentifier:'A',
 	delimeter:',',
-	initialize: function() {
-			    this.bindEvents();
-		    },
-	bindEvents: function() {
-			    document.getElementById("synchBtn").addEventListener('click', this.startCommunication, false);
-		    },
 	startCommunication: function() {
 			       bluetoothSerial.connect(BlueDevMacAdr, blue.onConnect, blue.onDisconnect);
 		       },

@@ -4,20 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
-function initDataValues()
-{
-	BlueDevMacAdr="20:15:05:06:65:16";
-	MicroDataSize=20;
-	MicroData=[];
-	XAxis=[];
-	for(var i=0; i<MicroDataSize; i++)
-	{
-		XAxis[i]=i+1;
-		MicroData[i]=Math.random()*50+40;
-	}
-}
-
-var ionicApp=angular.module('starter', ['ionic']);
+var ionicApp=angular.module('starter', ['ionic', 'chart.js']);
 
 ionicApp.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -31,3 +18,20 @@ ionicApp.run(function($ionicPlatform) {
     }
   });
 })
+
+ionicApp.controller('GraphCtrl', function($scope) { // Add a simple controller
+	$scope.graph = {};                        // Empty graph object to hold the details for this graph
+	$scope.graph.options={ showXLabels: 10 };
+	$scope.graph.data = [MicroData];                   // Add bar data, this will set your bars height in the graph
+	$scope.graph.colors=
+	[{
+		fillColor: 'rgba(32, 111, 204, 0.4)',
+	strokeColor: 'rgb(56, 117, 214)',
+	}];
+	$scope.graph.labels = XAxis;    // Add labels for the X-axis
+	$scope.graph.series = ['Awake'];  // Add information for the hover/touch effect
+	$scope.syncData=function()
+	{
+		blue.startCommunication();
+	}
+});
