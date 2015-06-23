@@ -18,24 +18,3 @@ ionicApp.run(function($ionicPlatform) {
     }
   });
 })
-
-
-/*
-.controller('GraphCtrl', function($scope) { // Add a simple controller
-	$scope.graph = {};                        // Empty graph object to hold the details for this graph
-	$scope.graph.options={ showXLabels: 10 };
-	$scope.graph.data = [MicroData];                   // Add bar data, this will set your bars height in the graph
-	$scope.graph.colors=
-	[{
-		fillColor: 'rgba(32, 111, 204, 0.4)',
-		strokeColor: 'rgb(56, 117, 214)',
-	}];
-	$scope.graph.labels = XAxis;    // Add labels for the X-axis
-	$scope.graph.series = ['Awake'];  // Add information for the hover/touch effect
-	$scope.resetData=function()
-	{
-		synchData();
-	}
-
-});
-*/

@@ -1,4 +1,4 @@
-function init_data_values()
+function initDataValues()
 {
 	BlueDevMacAdr="AA:BB:CC:DD:EE:FF";
 	MicroDataSize=20;
@@ -7,30 +7,29 @@ function init_data_values()
 	for(var i=0; i<MicroDataSize; i++)
 	{
 		XAxis[i]=i+1;
-		MicroData[i]=Math.random()*15+5;
+		MicroData[i]=Math.random()*50+40;
 	}
 }
 
-init_data_values();
 
-var data = {
-	labels: XAxis,
-	datasets: [
-	{
-		label: "My First dataset",
-		fillColor: 'rgba(32, 111, 204, 0.4)',
-		strokeColor: 'rgb(56, 117, 214)',
-		pointColor: "rgba(220,220,220,1)",
-		pointStrokeColor: "#fff",
-		pointHighlightFill: "#fff",
-		pointHighlightStroke: "rgba(220,220,220,1)",
-		data: MicroData
-	}
-	]
-};
-
+var chartData = undefined;
 function initChart()
 {
 	var ctx = document.getElementById("moist_chart").getContext("2d");
-	lineChart = new Chart(ctx).Line(data, null);
+	chartData={
+		labels: XAxis,
+		datasets: [
+		{
+			label: "My First dataset",
+			fillColor: 'rgba(32, 111, 204, 0.4)',
+			strokeColor: 'rgb(56, 117, 214)',
+			pointColor: "rgba(220,220,220,1)",
+			pointStrokeColor: "#fff",
+			pointHighlightFill: "#fff",
+			pointHighlightStroke: "rgba(220,220,220,1)",
+			data: MicroData
+		}
+		]
+	};
+	lineChart = new Chart(ctx).Line(chartData, null);
 }
