@@ -1,6 +1,6 @@
-function initDataValues()
+var chartData = undefined;
+function initChart()
 {
-	BlueDevMacAdr="AA:BB:CC:DD:EE:FF";
 	MicroDataSize=20;
 	MicroData=[];
 	XAxis=[];
@@ -9,12 +9,6 @@ function initDataValues()
 		XAxis[i]=i+1;
 		MicroData[i]=Math.random()*50+40;
 	}
-}
-
-
-var chartData = undefined;
-function initChart()
-{
 	var ctx = document.getElementById("moist_chart").getContext("2d");
 	chartData={
 		labels: XAxis,

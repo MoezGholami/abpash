@@ -13,7 +13,7 @@ var blue = {
 			   bluetoothSerial.subscribe("A", blue.onMessage, blue.subscribeFailed);
 		   },
 	onDisconnect: function() {
-			      alert("Disconnected");
+			      alert("نشد که وصل شم");
 		      },
 	onMessage: function(data) {
 			   counter.innerHTML = data;
@@ -21,6 +21,6 @@ var blue = {
 			   bluetoothSerial.disconnect();
 		   },
 	subscribeFailed: function() {
-				 alert("subscribe failed");
+				 alert("ارتباط قطع شد");
 			 }
 };
