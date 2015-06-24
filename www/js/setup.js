@@ -7,6 +7,6 @@ function initDataValues()
 	for(var i=0; i<MicroDataSize; i++)
 	{
 		XAxis[i]=i+1;
-		MicroData[i]=Math.random()*50+40;
+		MicroData[i]=Math.floor(Math.random()*50+40);
 	}
 }

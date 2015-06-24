@@ -3,6 +3,7 @@ var blue = {
 	delimeter:',',
 	startCommunication: function() {
 			       bluetoothSerial.connect(BlueDevMacAdr, blue.onConnect, blue.onDisconnect);
+			       showLoading();
 		       },
 	onConnect: function() {
 			   bluetoothSerial.write("a", function(){}, function(){});
@@ -10,14 +11,16 @@ var blue = {
 		   },
 	onDisconnect: function() {
 			      alert("نشد که وصل شم");
+			      hideLoading();
 		      },
 	onMessage: function(data) {
-			   blue.processGottenData(data.toString());
 			   bluetoothSerial.unsubscribe();
 			   bluetoothSerial.disconnect();
+			   blue.processGottenData(data.toString());
 		   },
 	subscribeFailed: function() {
 				 alert("ارتباط قطع شد");
+				 hideLoading();
 			 },
 	processGottenData: function(data)
 	{
@@ -33,5 +36,8 @@ var blue = {
 		TempMicroData.splice(0,TempMicroData.length-MicroDataSize);
 		for(var i=0; i<MicroDataSize; i++)
 			MicroData[i]=TempMicroData[i];
+		processed_data_div.innerHTML=parsedData;
+		updateChart();
+		hideLoading();
 	}
 };

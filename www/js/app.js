@@ -4,7 +4,22 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
-var ionicApp=angular.module('starter', ['ionic', 'chart.js']);
+//var ionicApp=angular.module('starter', ['ionic', 'chart.js']);
+
+
+function showLoading()
+{
+	document.getElementById("loadingImage").style.visibility = "visible";
+	document.getElementById("synchBtn").disabled = true;
+}
+
+function hideLoading()
+{
+	document.getElementById("loadingImage").style.visibility = "hidden";
+	document.getElementById("synchBtn").disabled = false;
+}
+
+var ionicApp=angular.module('starter', ['ionic']);
 
 ionicApp.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -19,6 +34,7 @@ ionicApp.run(function($ionicPlatform) {
   });
 })
 
+ /*
 ionicApp.controller('GraphCtrl', function($scope) { // Add a simple controller
 	$scope.graph = {};                        // Empty graph object to hold the details for this graph
 	$scope.graph.options={ showXLabels: 10 };
@@ -35,3 +51,4 @@ ionicApp.controller('GraphCtrl', function($scope) { // Add a simple controller
 		blue.startCommunication();
 	}
 });
+// */
